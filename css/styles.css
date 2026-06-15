@@ -1,0 +1,876 @@
+/* ================= RESET & CHUNG ================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #ddd;
+  overflow-y: auto; /* ✅ CHO PHÉP CUỘN */
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ================= HEADER ================= */
+header {
+  background: #ee83c0;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 24px;
+}
+
+/* ================= NAV ================= */
+nav {
+  background: #e575b6;
+  padding: 10px 20px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+nav ul li a {
+  padding: 8px 12px;
+  background-color: #2196f3;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+nav ul li a:hover {
+  background-color: #0b7dda;
+}
+
+/* ================= SEARCH ================= */
+.search-box {
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.search-box input {
+  width: 70%;
+  padding: 8px;
+}
+
+.search-box button {
+  padding: 8px 12px;
+}
+
+/* ================= HOME 3 CỘT ================= */
+.home-layout {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ---------- BÊN TRÁI: SLIDER ---------- */
+.left-banner {
+  flex: 1;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.left-banner .slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.left-banner .slide.active {
+  display: block;
+}
+
+/* ---------- GIỮA: BÀI VIẾT ---------- */
+.center-content {
+  flex: 1.5;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.center-content h2 {
+  color: #0077cc;
+  margin-top: 0;
+}
+
+.center-content p {
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* ---------- BÊN PHẢI: ẢNH ---------- */
+.right-image {
+  flex: 1;
+}
+
+.right-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ================= DANH SÁCH TOUR ================= */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.tour {
+  background: rgb(207, 176, 215);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tour img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.tour h3 {
+  margin: 10px 0 5px;
+}
+
+.tour p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.tour a {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 14px;
+  background: #28a745;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.tour a:hover {
+  background: #218838;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .home-layout {
+    flex-direction: column;
+  }
+
+  .left-banner,
+  .right-image img {
+    height: 250px;
+  }
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .search-box input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+/* ================= LOGIN FORM ================= */
+.login-wrapper {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 380px;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.login-box h2 {
+  text-align: center;
+  color: #0077cc;
+  margin-bottom: 10px;
+}
+
+.login-box p {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.login-box .form-group {
+  margin-bottom: 15px;
+}
+
+.login-box label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.login-box input:focus {
+  outline: none;
+  border-color: #0077cc;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #0077cc;
+  color: white;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background: #005fa3;
+}
+
+.login-error {
+  background: #ffe0e0;
+  color: #c62828;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.login-extra {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.login-extra a {
+  color: #0077cc;
+}
+/* ================= ADMIN DASHBOARD ================= */
+
+.admin-header {
+  background: #a186f8;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.admin-nav {
+  background: #333;
+  padding: 10px;
+  text-align: center;
+}
+
+.admin-nav a {
+  color: white;
+  margin: 0 10px;
+  padding: 6px 12px;
+  background: #0077cc;
+  border-radius: 5px;
+}
+
+.admin-nav a:hover {
+  background: #005fa3;
+}
+
+.admin-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.admin-box {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.admin-box h2 {
+  font-size: 36px;
+  color: #0077cc;
+  margin: 0;
+}
+/* =====
+/* ================= USER LOGIN (STYLE GIỐNG ADMIN) ================= */
+
+.user-login-body {
+  min-height: 100vh;
+  background-image: url("../images/cantho.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* căn giữa */
+.user-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+/* box */
+.user-login-box {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* tiêu đề */
+.user-login-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0077cc;
+}
+
+/* dùng lại form-group cũ */
+.user-login-box button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #0077cc;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.user-login-box button:hover {
+  background: #005fa3;
+}
+
+/* lỗi */
+.login-error {
+  background: #ffe0e0;
+  color: #c62828;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+/*
+
+
+
+
+
+/* ================= REGISTER FORM ================= */
+
+/* nền cho trang đăng ký */
+.register-body {
+  min-height: 100vh;
+  background-image: url("../images/pin.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* khung ngoài */
+.register-container {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  animation: registerFade 0.4s ease-in-out;
+}
+
+/* tiêu đề */
+.register-container h2 {
+  text-align: center;
+  color: #e575b6;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* nhóm input */
+.register-container .form-group {
+  margin-bottom: 15px;
+}
+
+.register-container label {
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.register-container input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: 0.2s;
+}
+
+.register-container input:focus {
+  outline: none;
+  border-color: #e575b6;
+  box-shadow: 0 0 0 2px rgba(229, 117, 182, 0.2);
+}
+
+/* nút đăng ký */
+.register-container button {
+  width: 100%;
+  padding: 12px;
+  background: #e575b6;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.register-container button:hover {
+  background-image: url("../images/pin.jpg");
+}
+
+/* lỗi */
+.register-error {
+  background: #ffe0e0;
+  color: #c62828;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* link phụ */
+.register-extra {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.register-extra a {
+  color: #e575b6;
+}
+
+/* hiệu ứng */
+@keyframes registerFade {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ================= ADMIN ADD TOUR ================= */
+
+.admin-add-body {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f6f8fa, #e9eef3);
+}
+
+.add-tour-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.add-tour-box {
+  width: 100%;
+  max-width: 700px;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.add-tour-box h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #0077cc;
+}
+
+.add-tour-box .form-group {
+  margin-bottom: 15px;
+}
+
+.add-tour-box label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.add-tour-box input,
+.add-tour-box textarea,
+.add-tour-box select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.add-tour-box input:focus,
+.add-tour-box textarea:focus {
+  outline: none;
+  border-color: #0077cc;
+  box-shadow: 0 0 0 2px rgba(0, 119, 204, 0.2);
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.add-tour-box button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: #0077cc;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.add-tour-box button:hover {
+  background: #005fa3;
+}
+
+@media (max-width: 600px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
+/* ================= ADMIN TABLE ================= */
+
+.admin-table-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th {
+  background: #0077cc;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+.admin-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-table tr:hover {
+  background: #f5f9ff;
+}
+
+.status-active {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.status-block {
+  color: #dc3545;
+  font-weight: bold;
+}
+/* ================= SEARCH ĐẸP HƠN ================= */
+.search-box {
+  max-width: 450px;
+  margin: 20px auto;
+  display: flex;
+  background: white;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  padding: 12px 18px;
+  font-size: 14px;
+  outline: none;
+  border-radius: 30px 0 0 30px;
+}
+
+.search-box button {
+  border: none;
+  padding: 0 22px;
+  background: linear-gradient(135deg, #2196f3, #0b7dda);
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 0 30px 30px 0;
+  transition: 0.3s;
+}
+
+.search-box button:hover {
+  background: linear-gradient(135deg, #0b7dda, #095fa8);
+}
+/* ================= TOP BANNER ================= */
+
+.top-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+/* Chữ trên banner */
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+.banner-text h1 {
+  font-size: 42px;
+  margin: 0;
+}
+
+.banner-text p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+.top-banner {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+}
+
+.banner-slide {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: none;
+}
+
+.banner-slide.active {
+  display: block;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.banner-overlay h1 {
+  font-size: 40px;
+}
+
+.banner-overlay p {
+  font-size: 18px;
+}
+/* DASHBOARD GRID */
+.admin-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* CARD */
+.admin-card {
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  color: white;
+  text-decoration: none;
+  padding: 25px;
+  border-radius: 16px;
+  text-align: center;
+  transition: 0.3s;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* ICON */
+.card-icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+/* NUMBER */
+.admin-card h2 {
+  font-size: 32px;
+  margin: 10px 0;
+}
+
+/* TEXT */
+.admin-card p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* HOVER */
+.admin-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+/* MÀU RIÊNG (OPTION) */
+.admin-card:nth-child(1) {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.admin-card:nth-child(2) {
+  background: linear-gradient(135deg, #facc15, #eab308);
+  color: black;
+}
+
+.admin-card:nth-child(3) {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
+.admin-card:nth-child(4) {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+/* HEADER */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  color: white;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* LEFT */
+.header-left h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+/* RIGHT */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 14px;
+}
+
+/* LOGOUT */
+.logout-btn {
+  background: #ef4444;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+/* ===== SUCCESS BOX ===== */
+.success-box {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  animation: fadeUp 0.4s ease;
+}
+
+/* ICON */
+.success-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+/* TITLE */
+.success-box h2 {
+  color: #22c55e;
+  margin-bottom: 10px;
+}
+
+/* TOUR NAME */
+.tour-name {
+  font-weight: bold;
+  color: #e575b6;
+  margin-bottom: 10px;
+}
+
+/* PRICE */
+.price {
+  background: #ecfdf5;
+  border: 1px dashed #22c55e;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 15px 0;
+  font-weight: bold;
+  color: #16a34a;
+}
+
+/* REDIRECT TEXT */
+.redirect {
+  font-size: 13px;
+  color: #777;
+}
